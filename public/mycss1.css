@@ -1,0 +1,27 @@
+body{
+    background-color: rgb(186, 230, 172);
+    margin-left: 200px ;
+    margin-right: 200px ;
+    font-family: 'Moon Dance';
+}
+p {
+    color:rgb(20, 7, 115);
+}
+
+a:link{
+    text-decoration: none;
+    color :rgb(194, 30, 96);
+}
+a:visited {
+    text-decoration: none;
+    color :rgb(194, 30, 96);
+}
+a:hover {
+    text-decoration: none;
+    color :rgb(218, 205, 15);
+    font-weight: bold;
+}
+
+.formatheader{
+    font-size: larger;
+}
