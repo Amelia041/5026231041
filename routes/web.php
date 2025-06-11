@@ -5,6 +5,7 @@ use App\Http\Controllers\Link;
 use App\Http\Controllers\Pegawai2Controller;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\KertasController;
 
 
 //import java.io; ini kalo di java
@@ -46,6 +47,15 @@ Route::get('/pegawai/edit/{id}',[PegawaiController::class,'edit']);
 Route::post('/pegawai/update',[PegawaiController::class,'update']);
 Route::get('/pegawai/hapus/{id}',[PegawaiController::class,'hapus']);
 Route::get('/pegawai/cari',[PegawaiController::class,'cari']);
+
+//pr pertemuan 14
+Route::get('/kertas', [KertasController::class,'index']);
+Route::get('/kertas/tambah',[KertasController::class,'tambah']);
+Route::post('/kertas/store', [KertasController::class,'store']);
+Route::get('/kertas/edit/{id}',[KertasController::class,'edit']);
+Route::post('/kertas/update',[KertasController::class,'update']);
+Route::get('/kertas/hapus/{id}',[KertasController::class,'hapus']);
+Route::get('/kertas/cari',[KertasController::class,'cari']);
 
 
 //file 1-ets pr pertemuan 11

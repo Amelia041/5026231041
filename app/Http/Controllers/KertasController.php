@@ -5,17 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class PegawaiController extends Controller
+class KertasController extends Controller
 {
     //
     public function index()
 	{
     	// mengambil data dari table pegawai
 		//$pegawai = DB::table('pegawai')->get();
-        $pegawai = DB::table('pegawai')->paginate();
+        $kertas = DB::table('kertas')->paginate(10);
 
     	// mengirim data pegawai ke view index
-		return view('index2',['pegawai' => $pegawai]);
+		return view('kertas',['kertas' => $kertas]);
 
 	}
 
@@ -24,7 +24,7 @@ class PegawaiController extends Controller
 	{
 
 		// memanggil view tambah
-		return view('tambah');
+		return view('tambahkertas');
 
 	}
 
@@ -32,14 +32,15 @@ class PegawaiController extends Controller
 	public function store(Request $request)
 	{
 		// insert data ke table pegawai
-		DB::table('pegawai')->insert([
-			'pegawai_nama' => $request->nama,
-			'pegawai_jabatan' => $request->jabatan,
-			'pegawai_umur' => $request->umur,
-			'pegawai_alamat' => $request->alamat
+		DB::table('kertas')->insert([
+			'ID' => $request->id,
+			'merkkertas' => $request->merkkertas,
+			'hargakertas' => $request->hargakertas,
+			'tersedia' => $request->tersedia,
+            'berat' => $request->berat
 		]);
 		// alihkan halaman ke halaman pegawai
-		return redirect('/pegawai');
+		return redirect('/kertas');
 
 	}
 
@@ -47,9 +48,9 @@ class PegawaiController extends Controller
 	public function edit($id)
 	{
 		// mengambil data pegawai berdasarkan id yang dipilih
-		$pegawai = DB::table('pegawai')->where('pegawai_id',$id)->get();
+		$kertas = DB::table('kertas')->where('ID',$id)->get();
 		// passing data pegawai yang didapat ke view edit.blade.php
-		return view('edit',['pegawai' => $pegawai]);
+		return view('editkertas',['kertas' => $kertas]);
 
 	}
 
@@ -57,24 +58,25 @@ class PegawaiController extends Controller
 	public function update(Request $request)
 	{
 		// update data pegawai
-		DB::table('pegawai')->where('pegawai_id',$request->id)->update([
-			'pegawai_nama' => $request->nama,
-			'pegawai_jabatan' => $request->jabatan,
-			'pegawai_umur' => $request->umur,
-			'pegawai_alamat' => $request->alamat
+		DB::table('kertas')->where('ID',$request->id)->update([
+			'ID' => $request->id,
+			'merkkertas' => $request->merek,
+			'hargakertas' => $request->harga,
+			'tersedia' => $request->tersedia,
+            'berat' => $request->berat
 		]);
 		// alihkan halaman ke halaman pegawai
-		return redirect('/pegawai');
+		return redirect('/kertas');
 	}
 
 	// method untuk hapus data pegawai
 	public function hapus($id)
 	{
 		// menghapus data pegawai berdasarkan id yang dipilih
-		DB::table('pegawai')->where('pegawai_id',$id)->delete();
+		DB::table('kertas')->where('ID',$id)->delete();
 
 		// alihkan halaman ke halaman pegawai
-		return redirect('/pegawai');
+		return redirect('/kertas');
 	}
 
     public function cari(Request $request)
@@ -83,13 +85,12 @@ class PegawaiController extends Controller
 	$cari = $request->cari;
 
  	// mengambil data dari table pegawai sesuai pencarian data
-	$pegawai = DB::table('pegawai')
-	->where('pegawai_nama','like',"%".$cari."%")
+	$kertas = DB::table('kertas')
+	->where('merkkertas','like',"%".$cari."%")
 	->paginate();
 
-    // mengirim data pegawai ke view index
-	return view('index2',['pegawai' => $pegawai,'cari' => $cari]);
+    	// mengirim data pegawai ke view index
+	return view('kertas',['kertas' => $kertas,'cari' => $cari]);
 
 }
 }
-
