@@ -6,7 +6,7 @@ use App\Http\Controllers\Pegawai2Controller;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\KertasController;
-
+use App\Http\Controllers\KeranjangbelanjaController;
 
 //import java.io; ini kalo di java
 
@@ -56,6 +56,12 @@ Route::get('/kertas/edit/{id}',[KertasController::class,'edit']);
 Route::post('/kertas/update',[KertasController::class,'update']);
 Route::get('/kertas/hapus/{id}',[KertasController::class,'hapus']);
 Route::get('/kertas/cari',[KertasController::class,'cari']);
+
+//pertemuan 15
+Route::get('/keranjangbelanja', [KeranjangbelanjaController::class,'index']);
+Route::get('/keranjangbelanja/beli',[KeranjangbelanjaController::class,'beli']);
+Route::post('/keranjangbelanja/store', [KeranjangbelanjaController::class,'store']);
+Route::get('/keranjangbelanja/batal/{id}',[KeranjangbelanjaController::class,'batal']);
 
 
 //file 1-ets pr pertemuan 11
