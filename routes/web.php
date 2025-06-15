@@ -7,6 +7,9 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\KertasController;
 use App\Http\Controllers\KeranjangbelanjaController;
+use App\Http\Controllers\keranjangbelanjaController2;
+use App\Http\Controllers\keranjangbelanjaController3;
+
 
 //import java.io; ini kalo di java
 
@@ -63,6 +66,18 @@ Route::get('/keranjangbelanja/beli',[KeranjangbelanjaController::class,'beli']);
 Route::post('/keranjangbelanja/store', [KeranjangbelanjaController::class,'store']);
 Route::get('/keranjangbelanja/batal/{id}',[KeranjangbelanjaController::class,'batal']);
 
+// keranjang belanja punya manzil
+Route::get('/keranjangbelanja2', [keranjangbelanjaController2::class, 'index_4']);
+Route::get('/keranjangbelanja2/keranjang-tambah', [keranjangbelanjaController2::class, 'keranjangtambah']);
+Route::post('/keranjangbelanja2/store', [keranjangbelanjaController2::class, 'store']);
+Route::get('/keranjangbelanja2/hapus/{id}', [keranjangbelanjaController2::class, 'hapus']);
+Route::get('/keranjangbelanja2/cari', [keranjangbelanjaController2::class, 'cari']);
+
+//crud keranjangbelanja punya shafa
+Route::get('/keranjangbelanja3', [KeranjangbelanjaController3::class,'index'] );
+Route::get('/keranjangbelanja3/tambah', [KeranjangbelanjaController3::class,'tambah'] );
+Route::post('/keranjangbelanja3/beli', [KeranjangbelanjaController3::class,'store'] );
+Route::get('/keranjangbelanja3/hapus/{id}', [KeranjangbelanjaController3::class,'hapus'] );
 
 //file 1-ets pr pertemuan 11
 Route::get('frontend', function () {
