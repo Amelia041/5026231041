@@ -13,7 +13,7 @@ class KeranjangbelanjaController extends Controller
         $keranjangbelanja = DB::table('keranjangbelanja')->paginate(10);
 
     	// mengirim data pegawai ke view index
-		return view('Keranjangbelanja/keranjangbelanja',['keranjangbelanja' => $keranjangbelanja]);
+		return view('keranjangbelanja',['keranjangbelanja' => $keranjangbelanja]);
 
 	}
 
@@ -22,7 +22,7 @@ class KeranjangbelanjaController extends Controller
 	{
 
 		// memanggil view tambah
-		return view('Keranjangbelanja/beli');
+		return view('beli');
 
 	}
 
