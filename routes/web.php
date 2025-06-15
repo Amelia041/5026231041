@@ -8,7 +8,7 @@ use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\KertasController;
 use App\Http\Controllers\KeranjangbelanjaController;
 use App\Http\Controllers\keranjangbelanjaController2;
-use App\Http\Controllers\keranjangbelanjaController3;
+use App\Http\Controllers\KaryawanController;
 
 
 //import java.io; ini kalo di java
@@ -67,17 +67,20 @@ Route::post('/keranjangbelanja/store', [KeranjangbelanjaController::class,'store
 Route::get('/keranjangbelanja/batal/{id}',[KeranjangbelanjaController::class,'batal']);
 
 // keranjang belanja punya manzil
-Route::get('/keranjangbelanja2', [keranjangbelanjaController2::class, 'index_4']);
+Route::get('/keranjangbelanja2', [keranjangbelanjaController2::class, 'index4']);
 Route::get('/keranjangbelanja2/keranjang-tambah', [keranjangbelanjaController2::class, 'keranjangtambah']);
 Route::post('/keranjangbelanja2/store', [keranjangbelanjaController2::class, 'store']);
 Route::get('/keranjangbelanja2/hapus/{id}', [keranjangbelanjaController2::class, 'hapus']);
 Route::get('/keranjangbelanja2/cari', [keranjangbelanjaController2::class, 'cari']);
 
-//crud keranjangbelanja punya shafa
-Route::get('/keranjangbelanja3', [KeranjangbelanjaController3::class,'index'] );
-Route::get('/keranjangbelanja3/tambah', [KeranjangbelanjaController3::class,'tambah'] );
-Route::post('/keranjangbelanja3/beli', [KeranjangbelanjaController3::class,'store'] );
-Route::get('/keranjangbelanja3/hapus/{id}', [KeranjangbelanjaController3::class,'hapus'] );
+//crud keryawan
+Route::get('/karyawan', [KaryawanController::class, 'index5']);
+Route::get('/karyawan/cari', [KaryawanController::class, 'cari']);
+Route::get('/karyawan/tambah', [KaryawanController::class, 'tambah']);
+Route::post('/karyawan/store', [KaryawanController::class, 'store']);
+Route::get('/karyawan/edit/{id}', [KaryawanController::class, 'edit']);
+Route::post('/karyawan/update', [KaryawanController::class, 'update']);
+Route::get('/karyawan/hapus/{id}', [KaryawanController::class, 'hapus']);
 
 //file 1-ets pr pertemuan 11
 Route::get('frontend', function () {
@@ -100,9 +103,9 @@ Route::get('form', function () {
     return view('form');
 });
 
-//Route::get('index', function () {
-    return view('index');
-//});
+Route::get('index', function () {
+    return view('idx');
+});
 
 Route::get('js1', function () {
     return view('js1');

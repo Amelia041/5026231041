@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 class keranjangbelanjaController2 extends Controller
 {
     //
-    public function index_4()
+    public function index4()
     {
         //mengambil data dari tabel
         $keranjangbelanja2 = DB::table('keranjangbelanja')->paginate(10);
