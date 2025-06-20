@@ -9,6 +9,7 @@ use App\Http\Controllers\KertasController;
 use App\Http\Controllers\KeranjangbelanjaController;
 use App\Http\Controllers\keranjangbelanjaController2;
 use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\MykaryawanController;
 
 
 //import java.io; ini kalo di java
@@ -81,6 +82,15 @@ Route::post('/karyawan/store', [KaryawanController::class, 'store']);
 Route::get('/karyawan/edit/{id}', [KaryawanController::class, 'edit']);
 Route::post('/karyawan/update', [KaryawanController::class, 'update']);
 Route::get('/karyawan/hapus/{id}', [KaryawanController::class, 'hapus']);
+
+//EAS
+Route::get('/mykaryawan', [MykaryawanController::class, 'index6']);
+Route::get('/mykaryawan/editkaryawan/{kodepegawai}', [MykaryawanController::class, 'editkaryawan']);
+Route::post('/mykaryawan/update', [MykaryawanController::class, 'update']);
+Route::get('/mykaryawan/view/{kodepegawai}', [MyKaryawanController::class, 'view']);
+
+
+
 
 //file 1-ets pr pertemuan 11
 Route::get('frontend', function () {
